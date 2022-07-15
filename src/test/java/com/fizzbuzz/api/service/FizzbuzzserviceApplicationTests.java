@@ -17,7 +17,7 @@ class FizzbuzzserviceApplicationTests {
 
 	@Autowired
 	MockMvc mockMvc;
-	
+	 private final String INVALID_INPUT="Invalid input number";
 	
 	
 	@Test
@@ -53,6 +53,16 @@ class FizzbuzzserviceApplicationTests {
 				"/fizzbuzzplay/15");
 		MvcResult result = mockMvc.perform(requestBuilder).andReturn();
         assertEquals("FizzBuzz", result.getResponse().getContentAsString());
+       
+    }
+	
+	@Test
+	void invlidGivenNumber() throws Exception {
+		
+		RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
+				"/fizzbuzzplay/-3");
+		MvcResult result = mockMvc.perform(requestBuilder).andReturn();
+        assertEquals(INVALID_INPUT, result.getResponse().getContentAsString());
        
     }
 
