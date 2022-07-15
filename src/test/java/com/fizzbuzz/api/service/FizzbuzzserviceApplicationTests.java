@@ -35,5 +35,15 @@ class FizzbuzzserviceApplicationTests {
         assertEquals("Fizz", result.getResponse().getContentAsString());
        
     }
+	
+	@Test
+	void getBuzzToGivenNumber() throws Exception {
+		
+		RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
+				"/fizzbuzzplay/5");
+		MvcResult result = mockMvc.perform(requestBuilder).andReturn();
+        assertEquals("Buzz", result.getResponse().getContentAsString());
+       
+    }
 
 }
