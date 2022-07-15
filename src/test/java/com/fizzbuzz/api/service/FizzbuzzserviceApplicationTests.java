@@ -18,6 +18,8 @@ class FizzbuzzserviceApplicationTests {
 	@Autowired
 	MockMvc mockMvc;
 	
+	
+	
 	@Test
 	void verifyFizzBuzzToGivenNumberAvailable() throws Exception {
 		  mockMvc.perform(get("/fizzbuzzplay/2")) 
@@ -31,8 +33,7 @@ class FizzbuzzserviceApplicationTests {
 				"/fizzbuzzplay/3");
 		MvcResult result = mockMvc.perform(requestBuilder).andReturn();
         assertEquals("Fizz", result.getResponse().getContentAsString());
-		
-		System.out.println(result.getResponse().getContentAsString());
-	}
+       
+    }
 
 }
